@@ -46,15 +46,20 @@
               </h3>
             </div>
             <!-- /.card-header -->
+
+
+                           <!-- /.card-header -->
             <div class="card-body">
+                  <p style="color:black;font-size:18px;font-weight:bold;border-bottom: 1px solid rgba(0, 0, 0, .125);padding-bottom: 16px;">Malik Somity President List</p>
+                  <hr>
               <table id="datatable" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>SL</th>
                   <th>Name</th>
                   <th>Mobile</th>
-                  <th>Email</th>
-                  <th>Password</th>
+                  <th>Type</th>
+                  <th>Designation</th>
                   <th>Image</th>
                   <th>Status</th>
                   <th>Action</th>
@@ -62,24 +67,24 @@
                 </thead>
                 <tbody>
                   <?php
-                  if($importer_data){
+                  if($president_importer_data){
                     $sl=0;
-                    foreach($importer_data as $all_importer_data){
+                    foreach($president_importer_data as $all_president_importer_data){
                       $sl++;
                   ?>
                   <tr>
                   <td><?php echo $sl;?></td>
-                  <td><?php echo $all_importer_data->importer_full_name;?></td>
-                  <td><?php echo $all_importer_data->importer_primary_mobile_number;?></td>
-                  <td><?php echo $all_importer_data->importer_email_address;?></td>
-                  <td><?php echo $all_importer_data->importer_user_password;?></td>
+                  <td><?php echo $all_president_importer_data->transport_owner_full_name_en;?></td>
+                  <td><?php echo $all_president_importer_data->importer_primary_mobile_number;?></td>
+                  <td><?php echo $all_president_importer_data->transport_owner_member_type;?></td>
+                  <td><?php echo $all_president_importer_data->transport_owner_designation;?></td>
                   <td>
-                    <span style="font-size:18px;cursor:pointer;color:blue;" data-toggle="modal" data-id="<?php echo $all_importer_data->importer_info_id;?>" data-target="#importerimage_view" id="importerimageview">
+                    <span style="font-size:18px;cursor:pointer;color:blue;" data-toggle="modal" data-id="<?php echo $all_president_importer_data->importer_info_id;?>" data-target="#importerimage_view" id="importerimageview">
                             <i class="fas fa-image"></i>
                         </span>
                   </td>
                   <td class="center">
-                      <?php if($all_importer_data->importer_is_active==1){?>
+                      <?php if($all_president_importer_data->importer_is_active==1){?>
                       <span class="badge badge-success">Active</span>
                       <?php } else{?>
                       <span class="badge badge-danger">Deactive</span>
@@ -94,12 +99,12 @@
                       if(in_array("publish_importer",$this->session->userdata('user_permission')))
                         {
                       ?>
-                    <?php if($all_importer_data->importer_is_active==1){?>
-                    <a title="Deactive importer Account." href="<?php echo base_url();?>Backend/ImporterController/deactive_importer/<?php echo $all_importer_data->importer_info_id;?>">
+                    <?php if($all_president_importer_data->importer_is_active==1){?>
+                    <a title="Deactive importer Account." href="<?php echo base_url();?>Backend/ImporterController/deactive_importer/<?php echo $all_president_importer_data->importer_info_id;?>">
                       <i style="color:red;" class="fa fa-thumbs-down"></i>
                     </a>
                     <?php } else{?>
-                    <a  title="Active importer Account." href="<?php echo base_url();?>Backend/ImporterController/active_importer/<?php echo $all_importer_data->importer_info_id;?>">
+                    <a  title="Active importer Account." href="<?php echo base_url();?>Backend/ImporterController/active_importer/<?php echo $all_president_importer_data->importer_info_id;?>">
                       <i class="fa fa-thumbs-up"></i>
                     </a>
                     <?php } ?>
@@ -111,14 +116,14 @@
                       if(in_array("edit_importer",$this->session->userdata('user_permission')))
                         {
                       ?>
-                    <a title="Edit/Update importer Info" href="<?php echo base_url();?>Cholotransportowner/EditImporterInfo/<?php echo $all_importer_data->importer_info_id;?>" >
+                    <a title="Edit/Update importer Info" href="<?php echo base_url();?>Cholotransportowner/EditImporterInfo/<?php echo $all_president_importer_data->importer_info_id;?>" >
                         <i style="color:blue;" class="fa fa-edit"></i>
                     </a>
                     <?php } ?>
 
 
 
-                    <a title="View importer Info Details" href="<?php echo base_url()?>Cholotransportowner/ViewImporterInfo/<?php echo $all_importer_data->importer_info_id;?>" >
+                    <a title="View importer Info Details" href="<?php echo base_url()?>Cholotransportowner/ViewImporterInfo/<?php echo $all_president_importer_data->importer_info_id;?>" >
                         <i style="color:green;" class="fa fa-eye"></i>
                     </a>
 
@@ -129,7 +134,7 @@
                       if(in_array("delete_importer",$this->session->userdata('user_permission')))
                         {
                       ?>
-                    <a title="importer Info Delete" href="<?php echo base_url()?>DeleteimporterInfo/<?php echo $all_importer_data->importer_info_id;?>" onclick="return checkdelete();">
+                    <a title="importer Info Delete" href="<?php echo base_url()?>DeleteimporterInfo/<?php echo $all_president_importer_data->importer_info_id;?>" onclick="return checkdelete();">
                       <i style="color:red;" class="fa fa-trash"></i>
                     </a>
                     <?php } ?>
@@ -146,6 +151,120 @@
               </table>
             </div>
             <!-- /.card-body -->
+
+                          <hr>
+
+            <p style="color:black;font-size:18px;font-weight:bold;border-bottom: 1px solid rgba(0, 0, 0, .125);padding-bottom: 16px;margin-left:15px;">Malik Somity General Member List</p>
+            
+            <div class="card-body">
+              <table id="datatable" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>SL</th>
+                  <th>Name</th>
+                  <th>Mobile</th>
+                  <th>Type</th>
+                  <th>Designation</th>
+                  <th>Image</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  if($member_importer_data){
+                    $sl=0;
+                    foreach($member_importer_data as $all_president_importer_data){
+                      $sl++;
+                  ?>
+                  <tr>
+                  <td><?php echo $sl;?></td>
+                  <td><?php echo $all_president_importer_data->transport_owner_full_name_en;?></td>
+                  <td><?php echo $all_president_importer_data->importer_primary_mobile_number;?></td>
+                  <td><?php echo $all_president_importer_data->transport_owner_member_type;?></td>
+                  <td><?php echo $all_president_importer_data->transport_owner_designation;?></td>
+                  <td>
+                    <span style="font-size:18px;cursor:pointer;color:blue;" data-toggle="modal" data-id="<?php echo $all_president_importer_data->importer_info_id;?>" data-target="#importerimage_view" id="importerimageview">
+                            <i class="fas fa-image"></i>
+                        </span>
+                  </td>
+                  <td class="center">
+                      <?php if($all_president_importer_data->importer_is_active==1){?>
+                      <span class="badge badge-success">Active</span>
+                      <?php } else{?>
+                      <span class="badge badge-danger">Deactive</span>
+                      <?php } ?>
+                  </td>
+
+
+                  <td class="center" style="font-size:16px;">
+
+
+                    <?php
+                      if(in_array("publish_importer",$this->session->userdata('user_permission')))
+                        {
+                      ?>
+                    <?php if($all_president_importer_data->importer_is_active==1){?>
+                    <a title="Deactive importer Account." href="<?php echo base_url();?>Backend/ImporterController/deactive_importer/<?php echo $all_president_importer_data->importer_info_id;?>">
+                      <i style="color:red;" class="fa fa-thumbs-down"></i>
+                    </a>
+                    <?php } else{?>
+                    <a  title="Active importer Account." href="<?php echo base_url();?>Backend/ImporterController/active_importer/<?php echo $all_president_importer_data->importer_info_id;?>">
+                      <i class="fa fa-thumbs-up"></i>
+                    </a>
+                    <?php } ?>
+                    <?php } ?>
+
+
+
+                    <?php
+                      if(in_array("edit_importer",$this->session->userdata('user_permission')))
+                        {
+                      ?>
+                    <a title="Edit/Update importer Info" href="<?php echo base_url();?>Cholotransportowner/EditImporterInfo/<?php echo $all_president_importer_data->importer_info_id;?>" >
+                        <i style="color:blue;" class="fa fa-edit"></i>
+                    </a>
+                    <?php } ?>
+
+
+
+                    <a title="View importer Info Details" href="<?php echo base_url()?>Cholotransportowner/ViewImporterInfo/<?php echo $all_president_importer_data->importer_info_id;?>" >
+                        <i style="color:green;" class="fa fa-eye"></i>
+                    </a>
+
+
+
+
+                    <?php
+                      if(in_array("delete_importer",$this->session->userdata('user_permission')))
+                        {
+                      ?>
+                    <a title="importer Info Delete" href="<?php echo base_url()?>DeleteimporterInfo/<?php echo $all_president_importer_data->importer_info_id;?>" onclick="return checkdelete();">
+                      <i style="color:red;" class="fa fa-trash"></i>
+                    </a>
+                    <?php } ?>
+
+
+                </td>
+                 
+                  </tr>
+            
+                  <?php } ?>
+                  <?php } ?>
+              
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+   
+
+
+
+
+
+
+
+
           </div>
           <!-- /.card -->
           <!-- /.card -->

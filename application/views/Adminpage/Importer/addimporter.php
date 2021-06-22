@@ -62,7 +62,7 @@
 
                   <div class="form-group">
                     <label for="importer_name">ট্রান্সপোর্ট মালিক নাম (ইংরেজি) <span style="color:red;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_owner_full_name_en" required id="transport_owner_full_name_bn" placeholder="ট্রান্সপোর্ট মালিক নাম ইংরেজি">
+                    <input type="text" class="form-control form-control-sm" name="transport_owner_full_name_en" required id="transport_owner_full_name_en" placeholder="ট্রান্সপোর্ট মালিক নাম ইংরেজি">
                   </div>
 
            

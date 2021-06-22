@@ -233,6 +233,8 @@ class ImporterController extends CI_Controller {
 		$importer_nid_number			                = $this->input->post('importer_nid_number',TRUE);
 		$importer_is_active					            = $this->input->post('importer_is_active',TRUE);
 		$transport_owner_member_type					= $this->input->post('transport_owner_member_type',TRUE);
+		$transport_owner_relative_name					= $this->input->post('transport_owner_relative_name',TRUE);
+		$transport_owner_relative_number				= $this->input->post('transport_owner_relative_number',TRUE);
 		
 		$this->form_validation->set_rules('transport_owner_full_name_bn', 'transport_owner_full_name_bn', 'required|trim');
 		$this->form_validation->set_rules('importer_address', 'importer_address', 'trim');
@@ -264,7 +266,6 @@ class ImporterController extends CI_Controller {
 			$data['importer_email_address']			= $importer_email_address;
 			$data['importer_primary_mobile_number']	= $importer_primary_mobile_number;
 			$data['importer_op1_mobile_number']		= $importer_op1_mobile_number;
-			$data['importer_op2_mobile_number']		= $importer_op2_mobile_number;
 
 			$data['transport_owner_permanent_address']				= $transport_owner_permanent_address;
 
@@ -274,6 +275,8 @@ class ImporterController extends CI_Controller {
 			$data['transport_owner_member_no']				= $transport_owner_member_no;
 			$data['transport_owner_card_no']				= $transport_owner_card_no;
 			$data['transport_owner_QRcode_no']				= $transport_owner_QRcode_no;
+			$data['transport_owner_relative_name']				= $transport_owner_relative_name;
+			$data['transport_owner_relative_number']				= $transport_owner_relative_number;
 			$data['importer_user_password']			= $importer_user_password;
 			$data['importer_nid_number']			= $importer_nid_number;
 			$data['transport_owner_designation']			= $transport_owner_designation;
@@ -348,7 +351,8 @@ class ImporterController extends CI_Controller {
 	public function manage_importer()
 	{
         if(in_array("manage_importer",$this->session->userdata('user_permission'))){
-        $data['importer_data']=$this->importerModel->select_all_importer_info();
+        $data['member_importer_data']=$this->importerModel->select_all_member_importer_info();
+        $data['president_importer_data']=$this->importerModel->select_all_president_importer_info();
 		$data['admin_main_content']=$this->load->view('Adminpage/Importer/manageimporter',$data,TRUE);
         $this->load->view("Adminpage/admin_master",$data);
         }else{
@@ -415,28 +419,37 @@ class ImporterController extends CI_Controller {
                 redirect('Cholotransportowner/EditImporterInfo/'.$importer_info_id);
         }else{
 		$data=array();
-		$importer_full_name					        = $this->input->post('importer_full_name',TRUE);
-		$importer_address					        = $this->input->post('importer_address',TRUE);
-		$importer_email_address				        = $this->input->post('importer_email_address',TRUE);
-		$importer_primary_mobile_number		        = $this->input->post('importer_primary_mobile_number',TRUE);
-		$importer_op1_mobile_number			        = $this->input->post('importer_op1_mobile_number',TRUE);
-		$importer_op2_mobile_number			        = $this->input->post('importer_op2_mobile_number',TRUE);
-		$importer_user_name					        = $this->input->post('importer_user_name',TRUE);
-		$importer_user_password				        = $this->input->post('importer_user_password',TRUE);
-        $importer_nid_number					        = $this->input->post('importer_nid_number',TRUE);
-        $hidden_importer_nid_card_front_side_image   = $this->input->post('hidden_importer_nid_card_front_side_image',TRUE);
-        $hidden_importer_nid_card_back_side_image    = $this->input->post('hidden_importer_nid_card_back_side_image',TRUE);
-        $hidden_importer_profile_photo               = $this->input->post('hidden_importer_profile_photo',TRUE);
-
-		$this->form_validation->set_rules('importer_full_name', 'importer_full_name', 'required|trim');
+        $transport_owner_full_name_bn					= $this->input->post('transport_owner_full_name_bn',TRUE);
+		$transport_owner_full_name_en					= $this->input->post('transport_owner_full_name_en',TRUE);
+		$transport_owner_permanent_address			    = $this->input->post('transport_owner_permanent_address',TRUE);
+		$importer_address					            = $this->input->post('importer_address',TRUE);
+		$importer_email_address				            = $this->input->post('importer_email_address',TRUE);
+		$importer_primary_mobile_number		            = $this->input->post('importer_primary_mobile_number',TRUE);
+		$importer_op1_mobile_number			            = $this->input->post('importer_op1_mobile_number',TRUE);
+		
+		$transport_name_en					            = $this->input->post('transport_name_en',TRUE);
+		$transport_name_bn					            = $this->input->post('transport_name_bn',TRUE);
+		$transport_owner_blood_group		            = $this->input->post('transport_owner_blood_group',TRUE);
+		$transport_owner_member_no		                = $this->input->post('transport_owner_member_no',TRUE);
+		$transport_owner_card_no		                = $this->input->post('transport_owner_card_no',TRUE);
+		$transport_owner_QRcode_no		                = $this->input->post('transport_owner_QRcode_no',TRUE);
+		$transport_owner_designation		            = $this->input->post('transport_owner_designation',TRUE);
+		$importer_user_password				            = $this->input->post('importer_user_password',TRUE);
+		$importer_nid_number			                = $this->input->post('importer_nid_number',TRUE);
+		$importer_is_active					            = $this->input->post('importer_is_active',TRUE);
+		$transport_owner_member_type					= $this->input->post('transport_owner_member_type',TRUE);
+		$transport_owner_relative_name					= $this->input->post('transport_owner_relative_name',TRUE);
+		$transport_owner_relative_number				= $this->input->post('transport_owner_relative_number',TRUE);
+		$hidden_importer_nid_card_front_side_image		= $this->input->post('hidden_importer_nid_card_front_side_image',TRUE);
+		$hidden_importer_nid_card_back_side_image		= $this->input->post('hidden_importer_nid_card_back_side_image',TRUE);
+		$hidden_importer_profile_photo		            = $this->input->post('hidden_importer_profile_photo',TRUE);
+		
+		$this->form_validation->set_rules('transport_owner_full_name_bn', 'transport_owner_full_name_bn', 'required|trim');
 		$this->form_validation->set_rules('importer_address', 'importer_address', 'trim');
 		$this->form_validation->set_rules('importer_email_address', 'importer_email_address', 'trim');
 		$this->form_validation->set_rules('importer_primary_mobile_number', 'importer_primary_mobile_number', 'required|trim');
 		$this->form_validation->set_rules('importer_op1_mobile_number', 'importer_op1_mobile_number', 'trim');
-		$this->form_validation->set_rules('importer_op2_mobile_number', 'importer_op2_mobile_number', 'trim');
-		$this->form_validation->set_rules('importer_user_name', 'importer_user_name', 'trim');
-		$this->form_validation->set_rules('importer_user_password', 'importer_user_password', 'required|trim');
-		$this->form_validation->set_rules('importer_nid_number', 'importer_nid_number', 'trim');
+		
 
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -446,7 +459,7 @@ class ImporterController extends CI_Controller {
 		}else{
 
             $check_importer_phone_number             = $this->importerModel->select_importer_info_data_by_importer_id($importer_info_id)->importer_primary_mobile_number;
-            $check_importer_email_address            = $this->importerModel->select_importer_info_data_by_importer_id($importer_info_id)->importer_email_address;
+
             
             if($check_importer_phone_number!=$importer_primary_mobile_number){
              $check_importer_phone_number_is_exist    =$this->importerModel->check_importer_phone_number_is_exist($importer_primary_mobile_number);
@@ -454,27 +467,35 @@ class ImporterController extends CI_Controller {
                 $check_importer_phone_number_is_exist=0;
             }
              
-             if($check_importer_email_address!=$importer_email_address){
-             $check_importer_email_is_exist           =$this->importerModel->check_importer_email_is_exist($importer_email_address);
-            }else{
+          
 
-                $check_importer_email_is_exist=0;
-            }
-
-            if($check_importer_phone_number_is_exist==1 || $check_importer_email_is_exist==1){
-                $fdata['error_message']="Importer Mobile Number Or Email Allready Exist in Our System.";
+            if($check_importer_phone_number_is_exist==1){
+                $fdata['error_message']="Importer Mobile Number Allready Exist in Our System.";
                 $this->session->set_flashdata($fdata);
                 redirect('Cholotransportowner/EditImporterInfo/'.$importer_info_id); 
             }else{
-			$data['importer_full_name']				= $importer_full_name;
-			$data['importer_address']				= $importer_address;
-			$data['importer_email_address']			= $importer_email_address;
-			$data['importer_primary_mobile_number']	= $importer_primary_mobile_number;
-			$data['importer_op1_mobile_number']		= $importer_op1_mobile_number;
-			$data['importer_op2_mobile_number']		= $importer_op2_mobile_number;
-			$data['importer_user_name']				= $importer_user_name;
-			$data['importer_user_password']			= $importer_user_password;
-			$data['importer_nid_number']		    = $importer_nid_number;
+			
+                $data['transport_owner_full_name_bn']				= $transport_owner_full_name_bn;
+                $data['transport_owner_full_name_en']				= $transport_owner_full_name_en;
+    
+                $data['importer_address']				= $importer_address;
+                $data['importer_email_address']			= $importer_email_address;
+                $data['importer_primary_mobile_number']	= $importer_primary_mobile_number;
+                $data['importer_op1_mobile_number']		= $importer_op1_mobile_number;
+    
+                $data['transport_owner_permanent_address']				= $transport_owner_permanent_address;
+    
+                $data['transport_name_en']				= $transport_name_en;
+                $data['transport_name_bn']				= $transport_name_bn;
+                $data['transport_owner_blood_group']				= $transport_owner_blood_group;
+                $data['transport_owner_member_no']				= $transport_owner_member_no;
+                $data['transport_owner_card_no']				= $transport_owner_card_no;
+                $data['transport_owner_QRcode_no']				= $transport_owner_QRcode_no;
+                $data['transport_owner_relative_name']				= $transport_owner_relative_name;
+                $data['transport_owner_relative_number']				= $transport_owner_relative_number;
+                $data['importer_user_password']			= $importer_user_password;
+                $data['importer_nid_number']			= $importer_nid_number;
+                $data['transport_owner_designation']			= $transport_owner_designation;
 
 
 			if(!empty($_FILES['importer_nid_card_front_side_image']['name'])){

@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           <div class="row">
             <div class="col-sm-12">
-            <h1 style="text-align:center;color:blue;font-weight:bold;margin-bottom:40px;"><?php echo $importer_image_data->importer_full_name ?></h1>
+            <h1 style="text-align:center;color:blue;font-weight:bold;margin-bottom:40px;"><?php echo $importer_image_data->transport_owner_full_name_en; ?></h1>
             </div>
             <br>
             </br>
@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="form-group">
           <div class="row">
               <div class="col-sm-5">
-            <label for="recipient-name" class="col-form-label">Transport Malik NID Card Back Side Photo : </label>
+            <label for="recipient-name" class="col-form-label">Transport Malik Signature : </label>
             </div>
             <div class="col-sm-7">
           <?php

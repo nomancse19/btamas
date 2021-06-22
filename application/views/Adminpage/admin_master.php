@@ -723,7 +723,7 @@ Web: https://noman-it.com
             >
               <i class="nav-icon fas fa-file-import"></i>
               <p>
-                Transport Malik Control Panel
+                Transport Malik Panel
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
