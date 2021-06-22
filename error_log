@@ -1,0 +1,2 @@
+[21-Jan-2021 22:16:08 Asia/Dhaka] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 51206400 bytes) in /home/cholotransport/public_html/system/libraries/Image_lib.php on line 1474
+[21-Jan-2021 22:16:24 Asia/Dhaka] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 51206400 bytes) in /home/cholotransport/public_html/system/libraries/Image_lib.php on line 1474

@@ -1,0 +1,136 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class ImporterModel extends CI_Model{
+    
+    public function check_admin_login_info($data){
+        $this->db->select('*');
+        $this->db->from('admin_user');
+        $this->db->where('admin_user_email',$data['admin_user_email']);
+        $this->db->where('admin_user_password',md5($data['admin_user_password']));
+        $qresult=$this->db->get();
+        $has=$qresult->num_rows();
+        if($has==1){
+        $result=$qresult->row();
+        return $result;
+        }
+    }
+
+
+    public function insert_importer_info($data){
+        $this->db->insert('importer_info',$data);
+    }
+    
+
+
+    public function check_importer_phone_number_is_exist($importer_mobile_number){
+        $this->db->select('*');
+        $this->db->from('importer_info');
+        $this->db->where('importer_primary_mobile_number',$importer_mobile_number);
+        $query_result=$this->db->get()->num_rows();
+        return $query_result;
+    }
+    
+    public function check_importer_email_is_exist($importer_email_address){
+        $this->db->select('*');
+        $this->db->from('importer_info');
+        $this->db->where('importer_email_address',$importer_email_address);
+        $query_result=$this->db->get()->num_rows();
+        return $query_result;
+    }
+
+
+
+    public function select_all_importer_info(){
+        $this->db->select('*');
+        $this->db->from('importer_info');
+        $this->db->order_by('importer_info_id','DESC');
+        $query=$this->db->get();
+        $query_result=$query->result();
+        return $query_result;
+    }
+
+    
+    public function deactive_importer_account_by_importer_id($importer_info_id){
+        $this->db->set('importer_is_active',0);
+        $this->db->where('importer_info_id',$importer_info_id);
+        $this->db->update('importer_info');
+        $fdata['success_message']="Importer Info Account Deactivated Success.";
+        $this->session->set_flashdata($fdata);
+        redirect('Cholotransportowner/ManageImporter');
+    }
+
+
+    public function active_importer_account_by_importer_id($importer_info_id){
+        $this->db->set('importer_is_active',1);
+        $this->db->where('importer_info_id',$importer_info_id);
+        $this->db->update('importer_info');
+        $fdata['success_message']="Importer Info Account Activated Success.";
+        $this->session->set_flashdata($fdata);
+        redirect('Cholotransportowner/ManageImporter');
+    }
+
+
+    public function select_importer_image_data_by_importer_id($importer_info_id){
+        $this->db->select('*');
+        $this->db->from('importer_info');
+        $this->db->where('importer_info_id',$importer_info_id);
+        $query=$this->db->get();
+        $query_result=$query->row();
+        return $query_result;
+    }
+
+
+    public function select_importer_info_data_by_importer_id($importer_info_id){
+        $this->db->select('*');
+        $this->db->from('importer_info');
+        $this->db->where('importer_info_id',$importer_info_id);
+        $query=$this->db->get();
+        $query_result=$query->row();
+        return $query_result;
+    }
+
+
+    public function update_importer_info($data){
+        $this->db->set('importer_full_name',$data['importer_full_name']);
+        $this->db->set('importer_address',$data['importer_address']);
+        $this->db->set('importer_email_address',$data['importer_email_address']);
+        $this->db->set('importer_primary_mobile_number',$data['importer_primary_mobile_number']);
+        $this->db->set('importer_op1_mobile_number',$data['importer_op1_mobile_number']);
+        $this->db->set('importer_op2_mobile_number',$data['importer_op2_mobile_number']);
+        $this->db->set('importer_user_name',$data['importer_user_name']);
+        $this->db->set('importer_user_password',$data['importer_user_password']);
+        $this->db->set('importer_nid_number',$data['importer_nid_number']);
+        $this->db->set('importer_nid_card_front_side_image',$data['importer_nid_card_front_side_image']);
+        $this->db->set('importer_nid_card_back_side_image',$data['importer_nid_card_back_side_image']);
+        $this->db->set('importer_profile_photo',$data['importer_profile_photo']);
+        $this->db->where('importer_info_id',$data['importer_info_id']);
+        $this->db->update('importer_info');
+    }
+
+
+    public function delete_old_importer_nid_card_front_side_image($importer_info_id){
+        $query_get_image =$this->db->get_where('importer_info', array('importer_info_id' =>$importer_info_id));
+        $file_name=$query_get_image->row('importer_nid_card_front_side_image');
+        unlink(FCPATH.$file_name);
+    }
+
+    public function delete_old_importer_nid_card_back_side_image($importer_info_id){
+        $query_get_image =$this->db->get_where('importer_info', array('importer_info_id' =>$importer_info_id));
+        $file_name=$query_get_image->row('importer_nid_card_back_side_image');
+        unlink(FCPATH.$file_name);
+    }
+
+    public function delete_old_importer_profile_photo($importer_info_id){
+        $query_get_image =$this->db->get_where('importer_info', array('importer_info_id' =>$importer_info_id));
+        $file_name=$query_get_image->row('importer_profile_photo');
+        unlink(FCPATH.$file_name);
+    }
+
+
+    
+    
+    
+}
+
+?>

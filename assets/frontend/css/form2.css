@@ -1,0 +1,25 @@
+.form-control{
+	border: 1px solid black;
+	border-radius: 0
+}
+.buttonstyle{
+	border: 0px;
+	border-radius: 0px;
+	color: #f6f6f6;
+	background-color: #007932;
+}
+/*.contactrow{
+	background-color: green;
+}*/
+
+.contactimg{
+	display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+}
+.contactimg img{
+	display: block;
+    max-width: 100%;
+    height: auto;
+}
