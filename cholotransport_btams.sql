@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 22, 2021 at 07:09 AM
--- Server version: 5.7.29
--- PHP Version: 7.3.12
+-- Generation Time: Jun 22, 2021 at 02:38 PM
+-- Server version: 5.7.31
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -1621,6 +1620,8 @@ CREATE TABLE IF NOT EXISTS `importer_info` (
   `transport_owner_QRcode_no` varchar(350) DEFAULT NULL,
   `transport_owner_member_type` varchar(250) DEFAULT NULL,
   `transport_owner_designation` varchar(250) DEFAULT NULL,
+  `transport_owner_relative_name` varchar(350) DEFAULT NULL,
+  `transport_owner_relative_number` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`importer_info_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
@@ -1628,11 +1629,11 @@ CREATE TABLE IF NOT EXISTS `importer_info` (
 -- Dumping data for table `importer_info`
 --
 
-INSERT INTO `importer_info` (`importer_info_id`, `transport_owner_full_name_bn`, `transport_owner_full_name_en`, `importer_address`, `transport_owner_permanent_address`, `importer_email_address`, `importer_primary_mobile_number`, `importer_op1_mobile_number`, `importer_op2_mobile_number`, `transport_name_en`, `transport_name_bn`, `importer_user_password`, `importer_nid_number`, `importer_nid_card_front_side_image`, `importer_nid_card_back_side_image`, `importer_profile_photo`, `importer_is_active`, `importer_is_flash_notification`, `importer_is_normal_notification`, `flash_notification_id`, `normal_notification_id`, `importer_created_date`, `importer_created_user_id`, `transport_owner_blood_group`, `transport_owner_member_no`, `transport_owner_card_no`, `transport_owner_QRcode_no`, `transport_owner_member_type`, `transport_owner_designation`) VALUES
-(1, 'Noman Khan', NULL, ' kgmdf ggg g jgmw wef wqfg rg', NULL, 'importer@gmail.com', '01890931354', '', '', 'import', NULL, '12345', '', '', '', '', 1, 0, 0, NULL, NULL, '2020-10-29 11:14:36', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'Ariful Islam ', NULL, '', NULL, '', '01764842617', '', '', '', NULL, '12345', '', '', '', '', 1, 0, 0, NULL, NULL, '2020-11-08 21:14:44', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'ইমপালস ইঞ্জিনিয়ারিং ও পাওয়ার লি :  ,গাজীপুর চৌরাস্তা, গাজীপুর।', NULL, 'গাজীপুর চৌরাস্তা, গাজীপুর।', NULL, 'impdemo@gmail.com', '01711223345', '', '', 'impdemo@gmail.com', NULL, '123456', '', 'images/importer_images/5e16524ea0824a37e3ade4ce74be719d.png', 'images/importer_images/27b4dc73179a1c81eb0fba0d19a123f0.png', 'images/importer_images/9007452ed177a49f48c79122938d845f.png', 1, 0, 0, NULL, NULL, '2021-02-03 00:56:14', 1, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'dadasd', 'asdasd', 'qasdas', 'dasdasd', 'admin@admin.com', '02212121212121212', '454543', NULL, '454', '5454545', 'password', '4545454545', 'images/importer_images/4015ca425427eb65cc17d76a755745d1.jpg', 'images/importer_images/06ee5535e06ac94962b999ad76912907.PNG', 'images/importer_images/d9a4a647dff3473d82758e23caeffc88.png', 1, 0, 0, NULL, NULL, '2021-06-22 13:01:49', 1, '4545', '24545454', '545454545', '454545454545', 'Member', 'member');
+INSERT INTO `importer_info` (`importer_info_id`, `transport_owner_full_name_bn`, `transport_owner_full_name_en`, `importer_address`, `transport_owner_permanent_address`, `importer_email_address`, `importer_primary_mobile_number`, `importer_op1_mobile_number`, `importer_op2_mobile_number`, `transport_name_en`, `transport_name_bn`, `importer_user_password`, `importer_nid_number`, `importer_nid_card_front_side_image`, `importer_nid_card_back_side_image`, `importer_profile_photo`, `importer_is_active`, `importer_is_flash_notification`, `importer_is_normal_notification`, `flash_notification_id`, `normal_notification_id`, `importer_created_date`, `importer_created_user_id`, `transport_owner_blood_group`, `transport_owner_member_no`, `transport_owner_card_no`, `transport_owner_QRcode_no`, `transport_owner_member_type`, `transport_owner_designation`, `transport_owner_relative_name`, `transport_owner_relative_number`) VALUES
+(1, 'Noman Khan', NULL, ' kgmdf ggg g jgmw wef wqfg rg', NULL, 'importer@gmail.com', '01890931354', '', '', 'import', NULL, '12345', '', '', '', '', 1, 0, 0, NULL, NULL, '2020-10-29 11:14:36', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'Ariful Islam ', NULL, '', NULL, '', '01764842617', '', '', '', NULL, '12345', '', '', '', '', 1, 0, 0, NULL, NULL, '2020-11-08 21:14:44', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'ইমপালস ইঞ্জিনিয়ারিং ও পাওয়ার লি :  ,গাজীপুর চৌরাস্তা, গাজীপুর।', NULL, 'গাজীপুর চৌরাস্তা, গাজীপুর।', NULL, 'impdemo@gmail.com', '01711223345', '', '', 'impdemo@gmail.com', NULL, '123456', '', 'images/importer_images/5e16524ea0824a37e3ade4ce74be719d.png', 'images/importer_images/27b4dc73179a1c81eb0fba0d19a123f0.png', 'images/importer_images/9007452ed177a49f48c79122938d845f.png', 1, 0, 0, NULL, NULL, '2021-02-03 00:56:14', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'dadasd', 'asdasd', 'qasdas', 'dasdasd', 'admin@admin.com', '02212121212121212', '454543', NULL, '454', '5454545', 'NOMAN', '4545454545', 'images/importer_images/4015ca425427eb65cc17d76a755745d1.jpg', 'images/importer_images/65538cec4706daaa96aa721dae96d261.jpg', 'images/importer_images/d9a4a647dff3473d82758e23caeffc88.png', 1, 0, 0, NULL, NULL, '2021-06-22 13:01:49', 1, '4545', '24545454', '545454545', '454545454545', 'Member', NULL, 'NOMAN', '01521451354');
 
 -- --------------------------------------------------------
 
@@ -2595,7 +2596,7 @@ CREATE TABLE IF NOT EXISTS `user_log` (
   `user_region` varchar(150) DEFAULT NULL,
   `user_log_added_time` datetime NOT NULL,
   PRIMARY KEY (`user_log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_log`
@@ -2671,7 +2672,11 @@ INSERT INTO `user_log` (`user_log_id`, `user_id`, `user_name`, `user_email`, `us
 (67, 8, 'Transport Malik Somity', 'btams@gmail.com', NULL, '2021-06-16 22:16:55', '203.76.220.38', 'Mozilla Firefox 89.0 on windows', '23.7529,90.4267', 'Bangladesh', 'Dhaka', 'Dhaka Division', '2021-06-16 22:16:55'),
 (68, 1, 'noman', 'noman.cse19@gmail.com', '2021-06-16 23:03:42', NULL, '37.111.213.52', 'Mozilla Firefox 90.0 on windows', '23.8123,90.4257', 'Bangladesh', 'Dhaka', 'Dhaka Division', '2021-06-16 23:03:42'),
 (69, 1, 'noman', 'noman.cse19@gmail.com', '2021-06-21 18:13:31', NULL, '203.76.220.38', 'Google Chrome 91.0.4472.106 on windows', '23.7272,90.4093', 'Bangladesh', 'Dhaka', 'Dhaka Division', '2021-06-21 18:13:31'),
-(70, 1, 'noman', 'noman.cse19@gmail.com', '2021-06-22 06:23:13', NULL, '127.0.0.1', 'Mozilla Firefox 90.0 on windows', NULL, NULL, NULL, NULL, '2021-06-22 06:23:13');
+(70, 1, 'noman', 'noman.cse19@gmail.com', '2021-06-22 06:23:13', NULL, '127.0.0.1', 'Mozilla Firefox 90.0 on windows', NULL, NULL, NULL, NULL, '2021-06-22 06:23:13'),
+(71, 1, 'noman', 'noman.cse19@gmail.com', '2021-06-22 16:04:05', NULL, '127.0.0.1', 'Mozilla Firefox 89.0 on windows', NULL, NULL, NULL, NULL, '2021-06-22 16:04:06'),
+(72, 1, 'noman', 'noman.cse19@gmail.com', NULL, '2021-06-22 16:23:03', '127.0.0.1', 'Mozilla Firefox 89.0 on windows', NULL, NULL, NULL, NULL, '2021-06-22 16:23:04'),
+(73, 1, 'noman', 'noman.cse19@gmail.com', '2021-06-22 16:23:14', NULL, '::1', 'Google Chrome 91.0.4472.114 on windows', NULL, NULL, NULL, NULL, '2021-06-22 16:23:14'),
+(74, 1, 'noman', 'noman.cse19@gmail.com', '2021-06-22 16:24:05', NULL, '127.0.0.1', 'Mozilla Firefox 89.0 on windows', NULL, NULL, NULL, NULL, '2021-06-22 16:24:05');
 
 -- --------------------------------------------------------
 
