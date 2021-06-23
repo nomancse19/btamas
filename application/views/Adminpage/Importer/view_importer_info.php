@@ -215,10 +215,24 @@
 
 
               <div class="col-sm-6">
+
+              <div class="col-sm-6" style="float: left;">
                   <div class="form-group">
                     <label for="importer_mobile_number">Transport Malik Blood Group <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
                     <input type="text" class="form-control form-control-sm" name="transport_owner_blood_group" readonly id="transport_owner_blood_group" value="<?php echo $edit_importer_data->transport_owner_blood_group;?>" placeholder="Enter Transport Malik Blood Groupr , You Can Add Multiple Separate By coma">
                   </div>
+              </div>
+
+
+              
+              <div class="col-sm-6" style="float: left;">
+                        <div class="form-group">
+                          <label for="importer_mobile_number">Transport Malik Birth Date <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
+                          <input type="text" class="form-control form-control-sm" readonly name="transport_owner_birth_date" id="transport_owner_birth_date" value="<?php echo $edit_importer_data->transport_owner_birth_date;?>" placeholder="Enter Transport Malik Birth Date..">
+                        </div>
+                  </div>
+
+
                   <div class="form-group">
                     <label for="importer_mobile_number">Transport Owner Member No <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
                     <input type="text" readonly class="form-control form-control-sm" name="transport_owner_member_no" id="transport_owner_member_no" value="<?php echo $edit_importer_data->transport_owner_member_no;?>" placeholder="Enter transport_owner_member_no">

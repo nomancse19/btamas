@@ -119,6 +119,7 @@ class ImporterModel extends CI_Model{
         $this->db->set('transport_name_en',$data['transport_name_en']);
         $this->db->set('transport_name_bn',$data['transport_name_bn']);
         $this->db->set('transport_owner_blood_group',$data['transport_owner_blood_group']);
+        $this->db->set('transport_owner_birth_date',$data['transport_owner_birth_date']);
         $this->db->set('transport_owner_member_no',$data['transport_owner_member_no']);
         $this->db->set('transport_owner_card_no',$data['transport_owner_card_no']);
         $this->db->set('transport_owner_QRcode_no',$data['transport_owner_QRcode_no']);

@@ -225,6 +225,7 @@ class ImporterController extends CI_Controller {
 		$transport_name_en					            = $this->input->post('transport_name_en',TRUE);
 		$transport_name_bn					            = $this->input->post('transport_name_bn',TRUE);
 		$transport_owner_blood_group		            = $this->input->post('transport_owner_blood_group',TRUE);
+		$transport_owner_birth_date		                = $this->input->post('transport_owner_birth_date',TRUE);
 		$transport_owner_member_no		                = $this->input->post('transport_owner_member_no',TRUE);
 		$transport_owner_card_no		                = $this->input->post('transport_owner_card_no',TRUE);
 		$transport_owner_QRcode_no		                = $this->input->post('transport_owner_QRcode_no',TRUE);
@@ -272,6 +273,7 @@ class ImporterController extends CI_Controller {
 			$data['transport_name_en']				= $transport_name_en;
 			$data['transport_name_bn']				= $transport_name_bn;
 			$data['transport_owner_blood_group']				= $transport_owner_blood_group;
+			$data['transport_owner_birth_date']				= $transport_owner_birth_date;
 			$data['transport_owner_member_no']				= $transport_owner_member_no;
 			$data['transport_owner_card_no']				= $transport_owner_card_no;
 			$data['transport_owner_QRcode_no']				= $transport_owner_QRcode_no;
@@ -430,6 +432,7 @@ class ImporterController extends CI_Controller {
 		$transport_name_en					            = $this->input->post('transport_name_en',TRUE);
 		$transport_name_bn					            = $this->input->post('transport_name_bn',TRUE);
 		$transport_owner_blood_group		            = $this->input->post('transport_owner_blood_group',TRUE);
+		$transport_owner_birth_date		                = $this->input->post('transport_owner_birth_date',TRUE);
 		$transport_owner_member_no		                = $this->input->post('transport_owner_member_no',TRUE);
 		$transport_owner_card_no		                = $this->input->post('transport_owner_card_no',TRUE);
 		$transport_owner_QRcode_no		                = $this->input->post('transport_owner_QRcode_no',TRUE);
@@ -488,6 +491,7 @@ class ImporterController extends CI_Controller {
                 $data['transport_name_en']				= $transport_name_en;
                 $data['transport_name_bn']				= $transport_name_bn;
                 $data['transport_owner_blood_group']				= $transport_owner_blood_group;
+                $data['transport_owner_birth_date']				= $transport_owner_birth_date;
                 $data['transport_owner_member_no']				= $transport_owner_member_no;
                 $data['transport_owner_card_no']				= $transport_owner_card_no;
                 $data['transport_owner_QRcode_no']				= $transport_owner_QRcode_no;
