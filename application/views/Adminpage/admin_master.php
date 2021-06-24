@@ -778,6 +778,22 @@ Web: https://noman-it.com
                   <p>Manage Transport Malik</p>
                 </a>
               </li>
+              <li class="nav-item">
+              <a href="<?php echo base_url();?>Cholotransportowner/ManageTransportMalikSms" 
+                <?php
+                    $path=current_url();
+                    $page= basename($path);
+                    if($page=='ManageTransportMalikSms'){
+                  echo "class='nav-link active'";
+                    }else{
+                      echo "class='nav-link'";
+                    }
+                ?>
+                >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Transport Malik SMS</p>
+                </a>
+              </li>
               <?php } ?>
 
 

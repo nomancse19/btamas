@@ -133,6 +133,7 @@ $route['Cholotransportowner/EditImporterInfo/(.+)']         = 'Backend/ImporterC
 $route['Cholotransportowner/SaveUpdateImporterInfo/(.+)']   = 'Backend/ImporterController/save_update_importer_info/$1';
 $route['Cholotransportowner/ViewImporterInfo/(.+)']         = 'Backend/ImporterController/view_importer_info/$1';
 $route['BTAMS/MemberVerify/QRCodeNO/(.+)']                  = 'HomeController/verify_transport_malik_info/$1';
+$route['Cholotransportowner/ManageTransportMalikSms']       = 'Backend/ImporterController/transport_malik_sms_sent';
 
 //Importer Controller Route End Here
 

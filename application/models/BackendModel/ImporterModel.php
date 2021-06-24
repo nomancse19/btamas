@@ -50,6 +50,16 @@ class ImporterModel extends CI_Model{
         return $query_result;
     }
 
+
+    public function select_all_active_transport_owner(){
+        $this->db->select('*');
+        $this->db->from('importer_info');
+        $this->db->order_by('transport_owner_member_type','DESC');
+        $query=$this->db->get();
+        $query_result=$query->result();
+        return $query_result;
+    }
+
     public function select_all_member_importer_info(){
         $this->db->select('*');
         $this->db->from('importer_info');

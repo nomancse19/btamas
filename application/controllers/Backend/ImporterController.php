@@ -562,7 +562,58 @@ class ImporterController extends CI_Controller {
 
 
 
+    public function transport_malik_sms_sent(){
+     
+        $transport_owner=$this->importerModel->select_all_active_transport_owner();
+        
+       foreach($transport_owner as $all_transport_owner){
+            $transport_owner_data[]=array(
+                $all_transport_owner->importer_info_id,
+                $all_transport_owner->transport_owner_full_name_en,
+                $all_transport_owner->importer_primary_mobile_number,
+                $all_transport_owner->transport_name_bn,
+                $all_transport_owner->transport_owner_member_type,
+                $all_transport_owner->transport_owner_designation,
+            );
+       }
     
+       $output = array(
+        "data" => $transport_owner_data
+    
+      );
+      
+     //header('Content-Type: application/json');
+      $json_user_data=json_encode( $output);
+        $data['json_user_data']=$json_user_data;
+        $data['selected_data']="[]";
+        
+    
+    
+        $data['admin_main_content']=$this->load->view('Adminpage/Importer/all_transport_malik_sms',$data,TRUE);
+        
+        $this->load->view('Adminpage/admin_master',$data);
+        
+    
+        
+    
+    }
+
+
+
+    public function send_selected_malik_sms(){
+        $transport_owner_id   =$this->input->post('id',TRUE);
+            print_r($transport_owner_id);
+        if($transport_owner_id){
+            
+        }else{
+            $fdata['error_message']="Please Select Any One Member For Sent Sms..";
+            $this->session->set_flashdata($fdata);
+            redirect('Cholotransportowner/ManageTransportMalikSms');
+        }
+
+    }
+    
+
     
 
 
