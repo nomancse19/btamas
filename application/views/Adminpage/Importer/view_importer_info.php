@@ -241,12 +241,12 @@
 
                   <div class="form-group">
                     <label for="importer_mobile_number">Transport Malik Card No <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_owner_card_no" value="<?php echo $edit_importer_data->transport_owner_card_no;?>" id="transport_owner_card_no" placeholder="Enter Transport Malik Card No....">
+                    <input type="text" class="form-control form-control-sm" readonly name="transport_owner_card_no" value="<?php echo $edit_importer_data->transport_owner_card_no;?>" id="transport_owner_card_no" placeholder="Enter Transport Malik Card No....">
                   </div>
                   
 				          <div class="form-group">
                     <label for="importer_mobile_number">Transport Malik QR Code No <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_owner_QRcode_no" id="transport_owner_QRcode_no" value="<?php echo $edit_importer_data->transport_owner_QRcode_no;?>" placeholder="Enter Transport Malik QR Code No...">
+                    <input type="text" class="form-control form-control-sm" readonly name="transport_owner_QRcode_no" id="transport_owner_QRcode_no" value="<?php echo $edit_importer_data->transport_owner_QRcode_no;?>" placeholder="Enter Transport Malik QR Code No...">
                   </div>
 
                   <div class="form-group">

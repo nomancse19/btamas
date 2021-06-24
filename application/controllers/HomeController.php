@@ -194,7 +194,15 @@ class HomeController extends CI_Controller {
 
 
 
-
+	public function verify_transport_malik_info($QRCodeNO){
+        $data['edit_importer_data']=$this->importerModel->select_trnasport_owner_info_by_qrcode($QRCodeNO);
+        if(empty($data['edit_importer_data'])){
+            echo "Failed ! No Data Found..";
+        }else{
+        $data['admin_main_content']=$this->load->view('Adminpage/Importer/view_transport_malik_info',$data);
+        
+        }
+    }
 
 
 

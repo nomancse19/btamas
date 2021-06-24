@@ -112,6 +112,16 @@ class ImporterModel extends CI_Model{
     }
 
 
+    public function select_trnasport_owner_info_by_qrcode($Qrcode){
+        $this->db->select('*');
+        $this->db->from('importer_info');
+        $this->db->where('transport_owner_QRcode_no',$Qrcode);
+        $query=$this->db->get();
+        $query_result=$query->row();
+        return $query_result;
+    }
+
+
     public function update_importer_info($data){
         $this->db->set('transport_owner_full_name_bn',$data['transport_owner_full_name_bn']);
         $this->db->set('transport_owner_full_name_en',$data['transport_owner_full_name_en']);
