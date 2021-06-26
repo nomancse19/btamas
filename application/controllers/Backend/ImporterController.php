@@ -58,6 +58,28 @@ class ImporterController extends CI_Controller {
     }
 
 
+    private function send_bulk_sms($sms_number,$msg){
+        $token = "14732954-55ae-4704-b0cd-381395a1ffa1";
+        $url = "https://smsplus.sslwireless.com/api/v3/send-sms/bulk";
+        $data= array(
+        'api_token'=>$token,
+        'msisdn'=>$sms_number,
+        'sid'=>"CHOLOGROUPMASK",
+        'sms'=>$msg,
+        'batch_csms_id'=>rand(),
+        ); // Add parameters in key value
+        $ch = curl_init(); // Initialize cURL
+        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_ENCODING, '');
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $smsresult = json_decode(curl_exec($ch));
+        return $smsresult->status.$smsresult->error_message;
+    }
+
+
 
     public function send_importer_sms(){
         $importer_number         = trim($this->input->post('importer_primary_mobile_number',TRUE));
@@ -601,11 +623,21 @@ class ImporterController extends CI_Controller {
 
 
     public function send_selected_malik_sms(){
-        $transport_owner_id   =$this->input->post('id',TRUE);
-            print_r($transport_owner_id);
-        if($transport_owner_id){
-            
+        $transport_owner_id   = $this->input->post('id',TRUE);
+         $sms                 = $this->input->post('sms',TRUE);  
+        if($transport_owner_id && $sms!='' ){
+           // print_r($transport_owner_id);
+            $number='';
+            foreach($transport_owner_id as $all_transport_owner_id){
+                    $mobile_number=$this->importerModel->get_transport_malik_number_by_id($all_transport_owner_id);
+                    $number.= '"'.$mobile_number.'",';	
+            }
+           //$selected_number= '['.$number.']';
+           $selected_number= '["01521451354","01772068908"]';
+          echo  $this->send_bulk_sms($selected_number,$sms);
+                
         }else{
+            
             $fdata['error_message']="Please Select Any One Member For Sent Sms..";
             $this->session->set_flashdata($fdata);
             redirect('Cholotransportowner/ManageTransportMalikSms');

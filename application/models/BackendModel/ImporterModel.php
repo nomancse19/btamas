@@ -122,6 +122,16 @@ class ImporterModel extends CI_Model{
     }
 
 
+    public function get_transport_malik_number_by_id($importer_info_id){
+        $this->db->select('*');
+        $this->db->from('importer_info');
+        $this->db->where('importer_info_id',$importer_info_id);
+        $query=$this->db->get();
+        $query_result=$query->row()->importer_primary_mobile_number;
+        return $query_result;
+    }
+
+
     public function select_trnasport_owner_info_by_qrcode($Qrcode){
         $this->db->select('*');
         $this->db->from('importer_info');

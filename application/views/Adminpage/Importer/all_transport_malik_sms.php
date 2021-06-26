@@ -108,11 +108,11 @@ table.dataTable thead th:first-child {
                                 </table>
                                   <hr>
 
-                                  <form id="frm-example" action="<?php echo base_url(); ?>Backend/ImporterController/send_selected_malik_sms" method="POST">
+                                  <form class="form-inline" id="frm-example" action="<?php echo base_url(); ?>Backend/ImporterController/send_selected_malik_sms" method="POST">
                                   <input type="hidden" name="<?=ImporterController::csrf_name();?>" value="<?=ImporterController::csrf_token();?>" />
                                        <div class="form-group">
                                           <label for="email">Enter Your Message : </label>
-                                          <textarea name="" class="form-control"  id="" cols="50" rows="2"></textarea>
+                                          <textarea  class="form-control" name="sms"  id="" cols="50" rows="2"></textarea>
                                        </div>&nbsp;&nbsp;&nbsp;
                                        
                                       
