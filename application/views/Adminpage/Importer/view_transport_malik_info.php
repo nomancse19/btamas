@@ -241,9 +241,9 @@ input.form-control {
 					</div>
               <div class="col-9">
                         <?php if($edit_importer_data->transport_owner_birth_date) { ?>
-                        <input type="text" readonly class="form-control" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>">
+                        <input type="text" readonly style="background-color:white;" class="form-control" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>">
                     <?php }else{ ?>
-                      <input type="text" readonly class="form-control" value="N/A">
+                      <input type="text" readonly style="background-color:white;" class="form-control" value="N/A">
                     <?php } ?>
               
               </div>
@@ -387,7 +387,7 @@ input.form-control {
                     </div>
 					
                     <?php if($edit_importer_data->transport_owner_member_no) { ?>
-                    <input type="text" readonly value="<?php echo $edit_importer_data->transport_owner_member_no; ?>" class="form-control">
+                    <input type="text" readonly style="background-color:white;" value="<?php echo $edit_importer_data->transport_owner_member_no; ?>" class="form-control">
                       <?php } else{ ?>
                         <input type="text" readonly value="N/A" class="form-control">
                       <?php } ?>
