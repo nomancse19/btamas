@@ -197,9 +197,34 @@ input.form-control {
        
              <?php if($edit_importer_data->importer_is_active==1){ ?>
               <img src="<?php echo base_url();?><?php echo $edit_importer_data->importer_profile_photo;?>" alt="profile-image" height="200" width="200" class="rounded-circle">
-              <h2 class="person-title f-28"><i class="fa fa-check-circle" style="color:#45C1EE;font-size:28px;" aria-hidden="true"></i><?php echo $edit_importer_data->transport_owner_full_name_bn; ?> </h2>
-              <p style="color:blue;font-weight:bold;"><?php echo $edit_importer_data->transport_owner_designation;?> </p>
-			  <h3 class="person_agency tx-r f-24" style="line-height:0%"><?php echo $edit_importer_data->transport_name_bn;?> </h3>
+
+
+              <?php if($edit_importer_data->transport_owner_full_name_bn){ ?>
+                <h2 class="person-title f-28"><i class="fa fa-check-circle" style="color:#45C1EE;font-size:28px;" aria-hidden="true"></i><?php echo $edit_importer_data->transport_owner_full_name_bn; ?> </h2>
+              <?php } else{?>
+                <h2 class="person-title f-28"><i class="fa fa-check-circle" style="color:#45C1EE;font-size:28px;" aria-hidden="true"></i>N/A </h2>
+              <?php } ?>
+
+
+
+             
+         
+                <?php if($edit_importer_data->transport_owner_designation){ ?>
+                  <p style="color:blue;font-weight:bold;"><?php echo $edit_importer_data->transport_owner_designation;?> </p>
+                <?php } else{?>
+                  <p style="color:blue;font-weight:bold;">N/A</p>
+                <?php } ?>
+         
+
+
+
+                <?php if($edit_importer_data->transport_name_bn){ ?>
+                  <h3 class="person_agency tx-r f-24" style="line-height:0%"><?php echo $edit_importer_data->transport_name_bn;?> </h3>
+                <?php } else{?>
+                  <h3 class="person_agency tx-r f-24" style="line-height:0%">N/A </h3>
+                <?php } ?>
+	
+        
 				
 
               <div class="row input_area input-area-purpal my-5" style="margin-bottom: 1rem !important;margin-top: 1rem !important;">
@@ -208,11 +233,19 @@ input.form-control {
 				  <div class="input-group">
 					 <div class="col-3">
                     <div class="input-group-prepend">
+
                       <span class="input-group-text" id="inputGroup-sizing">জন্ম তারিখ:</span>
+                   
+                   
                     </div>
 					</div>
               <div class="col-9">
-                        <input type="text" class="form-control" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>">
+                        <?php if($edit_importer_data->transport_owner_birth_date) { ?>
+                        <input type="text" readonly class="form-control" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>">
+                    <?php }else{ ?>
+                      <input type="text" readonly class="form-control" value="N/A">
+                    <?php } ?>
+              
               </div>
                   </div>
 				  
@@ -224,8 +257,12 @@ input.form-control {
                     </div>
 					</div>
 					 <div class="col-9">
-                    <input type="text" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>" class="form-control">
-					</div>
+            <?php if($edit_importer_data->importer_primary_mobile_number) { ?>
+                    <input type="text" readonly value="<?php echo $edit_importer_data->importer_primary_mobile_number; ?>" class="form-control">
+              <?php } else{?>
+                <input type="text" readonly value="N/A" class="form-control">
+              <?php } ?>
+          </div>
                   </div>
 				  
 				 
@@ -236,8 +273,12 @@ input.form-control {
                     </div>
 					</div>
 					 <div class="col-9">
-                    <input type="text" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>" class="form-control">
-					</div>
+           <?php if($edit_importer_data->importer_address) { ?>
+                    <input type="text" readonly value="<?php echo $edit_importer_data->importer_address; ?>" class="form-control">
+                <?php }else{ ?>
+                  <input type="text" readonly value="N/A" class="form-control">
+                <?php } ?>
+        	</div>
                   </div>
 				
 				  
@@ -248,8 +289,12 @@ input.form-control {
                     </div>
 					</div>
 					 <div class="col-9">
-                    <input type="text" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>" class="form-control">
-					</div>
+           <?php if($edit_importer_data->transport_owner_permanent_address) { ?>
+                    <input type="text" readonly value="<?php echo $edit_importer_data->transport_owner_permanent_address; ?>" class="form-control">
+					<?php } else{?>
+            <input type="text" readonly value="N/A" class="form-control">
+					<?php } ?>
+          </div>
 					
                   </div>
 				  
@@ -263,8 +308,12 @@ input.form-control {
                     </div>
 					
 					 <div class="col-8">
-                    <input type="text" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>" class="form-control">
-					</div>
+           <?php if($edit_importer_data->importer_nid_number) { ?>
+                    <input type="text" readonly value="<?php echo $edit_importer_data->importer_nid_number; ?>" class="form-control">
+            <?php }else{ ?>
+              <input type="text" readonly value="N/A" class="form-control">
+            <?php }?>
+        	</div>
 					
                   </div>
                   <div class="input-group">
@@ -276,8 +325,11 @@ input.form-control {
                     </div>
 					
 					 <div class="col-8">
-                    <input type="text" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>" class="form-control">
-
+              <?php if($edit_importer_data->importer_op1_mobile_number) { ?>
+                        <input type="text" readonly value="<?php echo $edit_importer_data->importer_op1_mobile_number; ?>" class="form-control">
+                <?php }else{ ?>
+                  <input type="text" readonly value="N/A" class="form-control">
+                <?php } ?>
 					</div>
                   </div>
                 <div class="border-big border-purple"></div>
@@ -295,8 +347,12 @@ input.form-control {
                     </div>
 					
 					 <div class="col-6">
-                    <input type="text" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>" class="form-control">
-					</div>
+           <?php if($edit_importer_data->transport_owner_relative_name) { ?>
+                    <input type="text" readonly value="<?php echo $edit_importer_data->transport_owner_relative_name; ?>" class="form-control">
+              <?php } else{?>
+                <input type="text" readonly value="N/A" class="form-control">
+              <?php } ?>
+          </div>
 					
 					
                   </div>
@@ -308,9 +364,13 @@ input.form-control {
                     </div>
                     </div>
 					
-					 <div class="col-9">
-                    <input type="text" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>" class="form-control">
-					</div>
+                  <div class="col-9">
+                  <?php if($edit_importer_data->transport_owner_relative_number) { ?>
+                          <input type="text" readonly value="<?php echo $edit_importer_data->transport_owner_relative_number; ?>" class="form-control">
+                  <?php } else{?>
+                    <input type="text" readonly value="N/A" class="form-control">
+                  <?php } ?>
+                  </div>
 					
                   </div>
                 </div>
@@ -326,9 +386,11 @@ input.form-control {
                       <span class="input-group-text"  id="inputGroup-sizing">সদস্য নং:</span>
                     </div>
 					
-					
-                    <input type="text" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>" class="form-control">
-					
+                    <?php if($edit_importer_data->transport_owner_member_no) { ?>
+                    <input type="text" readonly value="<?php echo $edit_importer_data->transport_owner_member_no; ?>" class="form-control">
+                      <?php } else{ ?>
+                        <input type="text" readonly value="N/A" class="form-control">
+                      <?php } ?>
 					
                   </div>
                 </div>
@@ -340,10 +402,11 @@ input.form-control {
                       <span class="input-group-text"  id="inputGroup-sizing">কাড নং:</span>
                     </div>
 					
-					
-                    <input type="text" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>" class="form-control">
-					
-					
+					      <?php if($edit_importer_data->transport_owner_card_no) {?>
+                    <input type="text" readonly value="<?php echo $edit_importer_data->transport_owner_card_no; ?>" class="form-control">
+                    <?php }else{ ?>
+                      <input type="text" readonly value="N/A" class="form-control">
+                      <?php } ?>
                   </div>
                 </div>
                 <div class="border-big border-yollow"></div>

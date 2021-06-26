@@ -59,25 +59,70 @@ class ImporterController extends CI_Controller {
 
 
     private function send_bulk_sms($sms_number,$msg){
-        $token = "14732954-55ae-4704-b0cd-381395a1ffa1";
+        $params = [
+            "api_token" => "14732954-55ae-4704-b0cd-381395a1ffa1",
+            "sid" => "Chologroupmask",
+            "msisdn" => $sms_number,
+            "sms" => $msg,
+            "batch_csms_id" => rand(),
+        ];
         $url = "https://smsplus.sslwireless.com/api/v3/send-sms/bulk";
-        $data= array(
-        'api_token'=>$token,
-        'msisdn'=>$sms_number,
-        'sid'=>"CHOLOGROUPMASK",
-        'sms'=>$msg,
-        'batch_csms_id'=>rand(),
-        ); // Add parameters in key value
+        $params = json_encode($params);
         $ch = curl_init(); // Initialize cURL
-        curl_setopt($ch, CURLOPT_URL,$url);
-        curl_setopt($ch, CURLOPT_ENCODING, '');
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($params),
+            'accept:application/json'
+        ));
         $smsresult = json_decode(curl_exec($ch));
-        return $smsresult->status.$smsresult->error_message;
+        return $smsresult->status.' '.$smsresult->error_message;
     }
+
+
+
+
+   private function bulkSms($msisdns, $messageBody)
+        {
+            $params = [
+                "api_token" => "14732954-55ae-4704-b0cd-381395a1ffa1",
+                "sid" => "Chologroupmask",
+                "msisdn" => $msisdns,
+                "sms" => $messageBody,
+                "batch_csms_id" => rand(),
+            ];
+            $url = "https://smsplus.sslwireless.com/api/v3/send-sms/bulk";
+            $params = json_encode($params);
+
+            return $this->callApi($url, $params);
+        }
+
+        private function callApi($url, $params)
+            {
+                $ch = curl_init(); // Initialize cURL
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Content-Type: application/json',
+                    'Content-Length: ' . strlen($params),
+                    'accept:application/json'
+                ));
+
+                $response = curl_exec($ch);
+
+                curl_close($ch);
+
+                return $response;
+            }
 
 
 
@@ -458,11 +503,11 @@ class ImporterController extends CI_Controller {
 		$transport_owner_member_no		                = $this->input->post('transport_owner_member_no',TRUE);
 		$transport_owner_card_no		                = $this->input->post('transport_owner_card_no',TRUE);
 		$transport_owner_QRcode_no		                = $this->input->post('transport_owner_QRcode_no',TRUE);
-		$transport_owner_designation		            = $this->input->post('transport_owner_designation',TRUE);
+		//$transport_owner_designation		            = $this->input->post('transport_owner_designation',TRUE);
 		$importer_user_password				            = $this->input->post('importer_user_password',TRUE);
 		$importer_nid_number			                = $this->input->post('importer_nid_number',TRUE);
-		$importer_is_active					            = $this->input->post('importer_is_active',TRUE);
-		$transport_owner_member_type					= $this->input->post('transport_owner_member_type',TRUE);
+		//$importer_is_active					            = $this->input->post('importer_is_active',TRUE);
+		//$transport_owner_member_type					= $this->input->post('transport_owner_member_type',TRUE);
 		$transport_owner_relative_name					= $this->input->post('transport_owner_relative_name',TRUE);
 		$transport_owner_relative_number				= $this->input->post('transport_owner_relative_number',TRUE);
 		$hidden_importer_nid_card_front_side_image		= $this->input->post('hidden_importer_nid_card_front_side_image',TRUE);
@@ -503,33 +548,33 @@ class ImporterController extends CI_Controller {
                 $data['transport_owner_full_name_bn']				= $transport_owner_full_name_bn;
                 $data['transport_owner_full_name_en']				= $transport_owner_full_name_en;
     
-                $data['importer_address']				= $importer_address;
-                $data['importer_email_address']			= $importer_email_address;
-                $data['importer_primary_mobile_number']	= $importer_primary_mobile_number;
-                $data['importer_op1_mobile_number']		= $importer_op1_mobile_number;
+                $data['importer_address']				            = $importer_address;
+                $data['importer_email_address']			            = $importer_email_address;
+                $data['importer_primary_mobile_number']	            = $importer_primary_mobile_number;
+                $data['importer_op1_mobile_number']		            = $importer_op1_mobile_number;
     
-                $data['transport_owner_permanent_address']				= $transport_owner_permanent_address;
+                $data['transport_owner_permanent_address']		    = $transport_owner_permanent_address;
     
-                $data['transport_name_en']				= $transport_name_en;
-                $data['transport_name_bn']				= $transport_name_bn;
+                $data['transport_name_en']				            = $transport_name_en;
+                $data['transport_name_bn']				            = $transport_name_bn;
                 $data['transport_owner_blood_group']				= $transport_owner_blood_group;
-                $data['transport_owner_birth_date']				= $transport_owner_birth_date;
-                $data['transport_owner_member_no']				= $transport_owner_member_no;
-                $data['transport_owner_card_no']				= $transport_owner_card_no;
-                $data['transport_owner_QRcode_no']				= $transport_owner_QRcode_no;
+                $data['transport_owner_birth_date']				    = $transport_owner_birth_date;
+                $data['transport_owner_member_no']				    = $transport_owner_member_no;
+                $data['transport_owner_card_no']				    = $transport_owner_card_no;
+                $data['transport_owner_QRcode_no']				    = $transport_owner_QRcode_no;
                 $data['transport_owner_relative_name']				= $transport_owner_relative_name;
-                $data['transport_owner_relative_number']				= $transport_owner_relative_number;
-                $data['importer_user_password']			= $importer_user_password;
-                $data['importer_nid_number']			= $importer_nid_number;
-                $data['transport_owner_designation']			= $transport_owner_designation;
+                $data['transport_owner_relative_number']			= $transport_owner_relative_number;
+                $data['importer_user_password']			            = $importer_user_password;
+                $data['importer_nid_number']			            = $importer_nid_number;
+               // $data['transport_owner_designation']			    = $transport_owner_designation;
 
 
 			if(!empty($_FILES['importer_nid_card_front_side_image']['name'])){
                 $this->importerModel->delete_old_importer_nid_card_front_side_image($importer_info_id);
 				$importer_nid_card_front_side_image="importer_nid_card_front_side_image";
-				$data['importer_nid_card_front_side_image']    = $this->upload_importer_nid_card_front_side_image($importer_nid_card_front_side_image);
+				$data['importer_nid_card_front_side_image']         = $this->upload_importer_nid_card_front_side_image($importer_nid_card_front_side_image);
 			}else{
-				$data['importer_nid_card_front_side_image']    = $hidden_importer_nid_card_front_side_image;
+				$data['importer_nid_card_front_side_image']         = $hidden_importer_nid_card_front_side_image;
 			}
 
 
@@ -537,9 +582,9 @@ class ImporterController extends CI_Controller {
 			if(!empty($_FILES['importer_nid_card_back_side_image']['name'])){
                 $this->importerModel->delete_old_importer_nid_card_back_side_image($importer_info_id);
 				$importer_nid_card_back_side_image="importer_nid_card_back_side_image";
-				$data['importer_nid_card_back_side_image']    = $this->upload_importer_nid_card_back_side_image($importer_nid_card_back_side_image);
+				$data['importer_nid_card_back_side_image']          = $this->upload_importer_nid_card_back_side_image($importer_nid_card_back_side_image);
 			}else{
-				$data['importer_nid_card_back_side_image']    = $hidden_importer_nid_card_back_side_image;
+				$data['importer_nid_card_back_side_image']          = $hidden_importer_nid_card_back_side_image;
 			}
 
 
@@ -547,16 +592,16 @@ class ImporterController extends CI_Controller {
 			if(!empty($_FILES['importer_profile_photo']['name'])){
                 $this->importerModel->delete_old_importer_profile_photo($importer_info_id);
 				$importer_profile_photo="importer_profile_photo";
-				$data['importer_profile_photo']    = $this->upload_importer_profile_photo($importer_profile_photo);
+				$data['importer_profile_photo']                     = $this->upload_importer_profile_photo($importer_profile_photo);
 			}else{
-				$data['importer_profile_photo']    = $hidden_importer_profile_photo;
+				$data['importer_profile_photo']                     = $hidden_importer_profile_photo;
             }
             
             $data['importer_info_id']=$importer_info_id;
 
             $importer_data_update=$this->importerModel->update_importer_info($data);
 
-             $fdata['success_message']="Importer Info Updated Successfully";
+             $fdata['success_message']="Transport Malik Info Updated Successfully";
                 $this->session->set_flashdata($fdata);
                 redirect('Cholotransportowner/EditImporterInfo/'.$importer_info_id);
         }
@@ -632,9 +677,10 @@ class ImporterController extends CI_Controller {
                     $mobile_number=$this->importerModel->get_transport_malik_number_by_id($all_transport_owner_id);
                     $number.= '"'.$mobile_number.'",';	
             }
-           //$selected_number= '['.$number.']';
-           $selected_number= '["01521451354","01772068908"]';
+           $selected_number= '['.$number.']';
+          // $selected_number= '["01521451354","01772068908"]';
           echo  $this->send_bulk_sms($selected_number,$sms);
+         //echo  $this->bulkSms($selected_number,$sms);
                 
         }else{
             

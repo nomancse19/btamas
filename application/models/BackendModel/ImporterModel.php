@@ -153,7 +153,7 @@ class ImporterModel extends CI_Model{
         $this->db->set('transport_owner_member_no',$data['transport_owner_member_no']);
         $this->db->set('transport_owner_card_no',$data['transport_owner_card_no']);
         $this->db->set('transport_owner_QRcode_no',$data['transport_owner_QRcode_no']);
-        $this->db->set('transport_owner_designation',$data['transport_owner_designation']);
+       // $this->db->set('transport_owner_designation',$data['transport_owner_designation']);
         $this->db->set('transport_owner_relative_name',$data['transport_owner_relative_name']);
         $this->db->set('transport_owner_relative_number',$data['transport_owner_relative_number']);
         $this->db->set('importer_address',$data['importer_address']);

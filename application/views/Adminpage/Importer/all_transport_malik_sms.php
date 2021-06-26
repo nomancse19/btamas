@@ -112,7 +112,7 @@ table.dataTable thead th:first-child {
                                   <input type="hidden" name="<?=ImporterController::csrf_name();?>" value="<?=ImporterController::csrf_token();?>" />
                                        <div class="form-group">
                                           <label for="email">Enter Your Message : </label>
-                                          <textarea  class="form-control" name="sms"  id="" cols="50" rows="2"></textarea>
+                                          <textarea  class="form-control" placeholder="Please Write Some SMS Content...." name="sms" required  id="" cols="50" rows="2"></textarea>
                                        </div>&nbsp;&nbsp;&nbsp;
                                        
                                       
