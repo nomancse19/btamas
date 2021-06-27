@@ -310,7 +310,7 @@ class ImporterController extends CI_Controller {
 		$this->form_validation->set_rules('importer_primary_mobile_number', 'importer_primary_mobile_number', 'required|trim');
 		$this->form_validation->set_rules('importer_op1_mobile_number', 'importer_op1_mobile_number', 'trim');
 		
-		$this->form_validation->set_rules('importer_user_password', 'importer_user_password', 'required|trim');
+		$this->form_validation->set_rules('importer_user_password', 'importer_user_password', 'trim');
 		$this->form_validation->set_rules('importer_nid_number', 'importer_nid_number', 'trim');
 		$this->form_validation->set_rules('importer_is_active', 'importer_is_active', 'trim|required');
 

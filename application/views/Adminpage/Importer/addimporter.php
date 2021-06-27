@@ -57,12 +57,12 @@
                   <div class="col-sm-6">
                   <div class="form-group">
                     <label for="importer_name">ট্রান্সপোর্ট মালিক নাম (বাংলায়) <span style="color:red;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_owner_full_name_bn" required id="transport_owner_full_name_bn" placeholder="ট্রান্সপোর্ট মালিক নাম বাংলায় ......">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_owner_full_name_bn" required id="transport_owner_full_name_bn" placeholder="ট্রান্সপোর্ট মালিক নাম বাংলায় ......">
                   </div>
 
                   <div class="form-group">
                     <label for="importer_name">ট্রান্সপোর্ট মালিক নাম (ইংরেজি) <span style="color:red;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_owner_full_name_en" required id="transport_owner_full_name_en" placeholder="ট্রান্সপোর্ট মালিক নাম ইংরেজি">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_owner_full_name_en" required id="transport_owner_full_name_en" placeholder="ট্রান্সপোর্ট মালিক নাম ইংরেজি">
                   </div>
 
            
@@ -70,32 +70,32 @@
                 
                   <div class="form-group">
                     <label for="importer_address">Transport Malik Present Address <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="importer_address" id="importer_address" placeholder="Enter Transport Present Malik Address">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="importer_address" id="importer_address" placeholder="Enter Transport Present Malik Address">
                   </div>
 
                   <div class="form-group">
                     <label for="importer_address">Transport Malik Permanent Address <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_owner_permanent_address" id="importer_address" placeholder="Enter Transport Permanent Malik Address">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_owner_permanent_address" id="importer_address" placeholder="Enter Transport Permanent Malik Address">
                   </div>
 
                   
                   <div class="form-group">
                     <label for="importer_email_address">Transport Malik Email Address <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="email" class="form-control form-control-sm" name="importer_email_address" id="importer_email_address" placeholder="Enter Transport Malik Email Address">
+                    <input type="email" class="form-control form-control-sm" autocomplete="off" name="importer_email_address" id="importer_email_address" placeholder="Enter Transport Malik Email Address">
                   </div>
 
 
 
                   <div class="form-group">
                     <label for="importer_mobile_number">Transport Malik Mobile Number(Main)<span style="color:red;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="number" class="form-control form-control-sm" name="importer_primary_mobile_number" required id="importer_primary_mobile_number" placeholder="Enter Transport Malik Primary Mobile Number">
+                    <input type="number" class="form-control form-control-sm" autocomplete="off" name="importer_primary_mobile_number" required id="importer_primary_mobile_number" placeholder="Enter Transport Malik Primary Mobile Number">
                   </div>
 
 
                   
                   <div class="form-group">
                     <label for="importer_mobile_number">Transport Malik Mobile Number(Optional1) <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="number" class="form-control form-control-sm" name="importer_op1_mobile_number" id="importer_op1_mobile_number" placeholder="Enter Transport Malik Optional Mobile Number">
+                    <input type="number" class="form-control form-control-sm" autocomplete="off" name="importer_op1_mobile_number" id="importer_op1_mobile_number" placeholder="Enter Transport Malik Optional Mobile Number">
                   </div>
 
                   
@@ -103,20 +103,20 @@
 
                   <div class="form-group">
                     <label for="importer_mobile_number">Transport Malik Wife/Husband/Children Name <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_owner_relative_name" id="transport_owner_relative_name" placeholder="Enter Transport Malik Wife/Husband/Children Name">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_owner_relative_name" id="transport_owner_relative_name" placeholder="Enter Transport Malik Wife/Husband/Children Name">
                   </div>
 
                   <div class="form-group">
                     <label for="importer_mobile_number">Transport Malik Wife/Husband/Children Number <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_owner_relative_number" id="transport_owner_relative_number" placeholder="Enter Transport Malik Wife/Husband/Children Number">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_owner_relative_number" id="transport_owner_relative_number" placeholder="Enter Transport Malik Wife/Husband/Children Number">
                   </div>
                   <div class="form-group">
                     <label for="importer_mobile_number">Transport Name (English) <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_name_en" id="transport_name_en" placeholder="Enter Transport Name in English">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_name_en" id="transport_name_en" placeholder="Enter Transport Name in English">
                   </div>
 				          <div class="form-group">
                     <label for="importer_mobile_number">Transport Name (Bangla) <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_name_bn" id="transport_name_bn" placeholder="Enter Transport Name in Bangla">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_name_bn" id="transport_name_bn" placeholder="Enter Transport Name in Bangla">
                   </div>
                  
 				  
@@ -132,7 +132,7 @@
                     <div class="col-sm-6" style="float: left;">
                       <div class="form-group">
                         <label for="importer_mobile_number">Transport Malik Blood Group <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                        <input type="text" class="form-control form-control-sm" name="transport_owner_blood_group" id="transport_owner_blood_group" placeholder="Enter Transport Malik Blood Group">
+                        <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_owner_blood_group" id="transport_owner_blood_group" placeholder="Enter Transport Malik Blood Group">
                       </div>
 
                     </div>
@@ -141,34 +141,34 @@
                     <div class="col-sm-6" style="float: left;">
                         <div class="form-group">
                           <label for="importer_mobile_number">Transport Malik Birth Date <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                          <input type="text" class="form-control form-control-sm" name="transport_owner_birth_date" id="transport_owner_birth_date" placeholder="Enter Transport Malik Birth Date..">
+                          <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_owner_birth_date" id="transport_owner_birth_date" placeholder="Enter Transport Malik Birth Date..">
                         </div>
                   </div>
 
 				          <div class="form-group">
                     <label for="importer_mobile_number">Transport Malik Member No <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_owner_member_no" id="transport_owner_member_no" placeholder="Enter Transport Malik Member Number...">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_owner_member_no" id="transport_owner_member_no" placeholder="Enter Transport Malik Member Number...">
                   </div>
 
 				          <div class="form-group">
                     <label for="importer_mobile_number">Transport Malik Card No <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_owner_card_no" id="transport_owner_card_no" placeholder="Enter Transport Malik Card No....">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_owner_card_no" id="transport_owner_card_no" placeholder="Enter Transport Malik Card No....">
                   </div>
                   
 				          <div class="form-group">
                     <label for="importer_mobile_number">Transport Malik QR Code No <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="transport_owner_QRcode_no" id="transport_owner_QRcode_no" placeholder="Enter Transport Malik QR Code No...">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="transport_owner_QRcode_no" id="transport_owner_QRcode_no" placeholder="Enter Transport Malik QR Code No...">
                   </div>
 
 
                   <div class="form-group">
-                    <label for="importer_mobile_number">Transport Malik Account Password <span style="color:red;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="password" class="form-control form-control-sm" name="importer_user_password" required id="importer_user_password" placeholder="Enter Transport Malik User Password">
+                    <label for="importer_mobile_number">Transport Malik Account Password <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
+                    <input type="password" class="form-control form-control-sm" autocomplete="off" name="importer_user_password" id="importer_user_password" placeholder="Enter Transport Malik User Password">
                   </div>
 
                   <div class="form-group">
                     <label for="importer_mobile_number">Transport Malik NID Card No <span style="color:black;font-weight:bold;font-size:17px;">*</span></label>
-                    <input type="text" class="form-control form-control-sm" name="importer_nid_number" id="importer_nid_number" placeholder="Enter Transport Malik NID Card Number">
+                    <input type="text" class="form-control form-control-sm" autocomplete="off" name="importer_nid_number" id="importer_nid_number" placeholder="Enter Transport Malik NID Card Number">
                   </div>
 
 

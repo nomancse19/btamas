@@ -207,24 +207,20 @@ input.form-control {
 
 
 
-             
-         
-                <?php if($edit_importer_data->transport_owner_designation){ ?>
-                  <p style="color:blue;font-weight:bold;"><?php echo $edit_importer_data->transport_owner_designation;?> </p>
-                <?php } else{?>
-                  <p style="color:blue;font-weight:bold;">N/A</p>
-                <?php } ?>
-         
-
-
-
                 <?php if($edit_importer_data->transport_name_bn){ ?>
-                  <h3 class="person_agency tx-r f-24" style="line-height:0%"><?php echo $edit_importer_data->transport_name_bn;?> </h3>
+                  <h3 class="person_agency tx-r f-24" style="line-height:50%"><?php echo $edit_importer_data->transport_name_bn;?> </h3>
                 <?php } else{?>
-                  <h3 class="person_agency tx-r f-24" style="line-height:0%">N/A </h3>
+                  <h3 class="person_agency tx-r f-24" style="line-height:50%">N/A </h3>
                 <?php } ?>
 	
         
+
+                <?php if($edit_importer_data->transport_owner_designation){ ?>
+                  <p style="color:blue;font-weight:bold;line-height:160%;"><?php echo $edit_importer_data->transport_owner_designation;?> </p>
+                <?php } else{?>
+                  <p style="color:blue;font-weight:bold;line-height:160%;">N/A</p>
+                <?php } ?>
+         
 				
 
               <div class="row input_area input-area-purpal my-5" style="margin-bottom: 1rem !important;margin-top: 1rem !important;">
@@ -241,9 +237,9 @@ input.form-control {
 					</div>
               <div class="col-9">
                         <?php if($edit_importer_data->transport_owner_birth_date) { ?>
-                        <input type="text" readonly style="background-color:white;" class="form-control" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>">
+                        <input type="text" readonly style="background-color:#FEF3F9;" class="form-control" value="<?php echo $edit_importer_data->transport_owner_birth_date; ?>">
                     <?php }else{ ?>
-                      <input type="text" readonly style="background-color:white;" class="form-control" value="N/A">
+                      <input type="text" readonly style="background-color:#FEF3F9;" class="form-control" value="N/A">
                     <?php } ?>
               
               </div>
@@ -258,9 +254,9 @@ input.form-control {
 					</div>
 					 <div class="col-9">
             <?php if($edit_importer_data->importer_primary_mobile_number) { ?>
-                    <input type="text" readonly value="<?php echo $edit_importer_data->importer_primary_mobile_number; ?>" class="form-control">
+                    <input type="text" readonly style="background-color:#FEF3F9;" value="<?php echo $edit_importer_data->importer_primary_mobile_number; ?>" class="form-control">
               <?php } else{?>
-                <input type="text" readonly value="N/A" class="form-control">
+                <input type="text" readonly style="background-color:#FEF3F9;" value="N/A" class="form-control">
               <?php } ?>
           </div>
                   </div>
@@ -274,9 +270,9 @@ input.form-control {
 					</div>
 					 <div class="col-9">
            <?php if($edit_importer_data->importer_address) { ?>
-                    <input type="text" readonly value="<?php echo $edit_importer_data->importer_address; ?>" class="form-control">
+                    <input type="text" style="background-color:#FEF3F9;" readonly value="<?php echo $edit_importer_data->importer_address; ?>" class="form-control">
                 <?php }else{ ?>
-                  <input type="text" readonly value="N/A" class="form-control">
+                  <input type="text" style="background-color:#FEF3F9;" readonly value="N/A" class="form-control">
                 <?php } ?>
         	</div>
                   </div>
@@ -290,9 +286,9 @@ input.form-control {
 					</div>
 					 <div class="col-9">
            <?php if($edit_importer_data->transport_owner_permanent_address) { ?>
-                    <input type="text" readonly value="<?php echo $edit_importer_data->transport_owner_permanent_address; ?>" class="form-control">
+                    <input type="text" style="background-color:#FEF3F9;" readonly value="<?php echo $edit_importer_data->transport_owner_permanent_address; ?>" class="form-control">
 					<?php } else{?>
-            <input type="text" readonly value="N/A" class="form-control">
+            <input type="text" style="background-color:#FEF3F9;" readonly value="N/A" class="form-control">
 					<?php } ?>
           </div>
 					
@@ -309,9 +305,9 @@ input.form-control {
 					
 					 <div class="col-8">
            <?php if($edit_importer_data->importer_nid_number) { ?>
-                    <input type="text" readonly value="<?php echo $edit_importer_data->importer_nid_number; ?>" class="form-control">
+                    <input type="text" style="background-color:#FEF3F9;" readonly value="<?php echo $edit_importer_data->importer_nid_number; ?>" class="form-control">
             <?php }else{ ?>
-              <input type="text" readonly value="N/A" class="form-control">
+              <input type="text" style="background-color:#FEF3F9;" readonly value="N/A" class="form-control">
             <?php }?>
         	</div>
 					
@@ -326,9 +322,9 @@ input.form-control {
 					
 					 <div class="col-8">
               <?php if($edit_importer_data->importer_op1_mobile_number) { ?>
-                        <input type="text" readonly value="<?php echo $edit_importer_data->importer_op1_mobile_number; ?>" class="form-control">
+                        <input type="text" style="background-color:#FEF3F9;" readonly value="<?php echo $edit_importer_data->importer_op1_mobile_number; ?>" class="form-control">
                 <?php }else{ ?>
-                  <input type="text" readonly value="N/A" class="form-control">
+                  <input type="text" style="background-color:#FEF3F9;" readonly value="N/A" class="form-control">
                 <?php } ?>
 					</div>
                   </div>
@@ -348,9 +344,9 @@ input.form-control {
 					
 					 <div class="col-6">
            <?php if($edit_importer_data->transport_owner_relative_name) { ?>
-                    <input type="text" readonly value="<?php echo $edit_importer_data->transport_owner_relative_name; ?>" class="form-control">
+                    <input type="text" style="background-color:#E7F4FA;" readonly value="<?php echo $edit_importer_data->transport_owner_relative_name; ?>" class="form-control">
               <?php } else{?>
-                <input type="text" readonly value="N/A" class="form-control">
+                <input type="text" style="background-color:#E7F4FA;" readonly value="N/A" class="form-control">
               <?php } ?>
           </div>
 					
@@ -366,9 +362,9 @@ input.form-control {
 					
                   <div class="col-9">
                   <?php if($edit_importer_data->transport_owner_relative_number) { ?>
-                          <input type="text" readonly value="<?php echo $edit_importer_data->transport_owner_relative_number; ?>" class="form-control">
+                          <input type="text" style="background-color:#E7F4FA;" readonly value="<?php echo $edit_importer_data->transport_owner_relative_number; ?>" class="form-control">
                   <?php } else{?>
-                    <input type="text" readonly value="N/A" class="form-control">
+                    <input type="text" style="background-color:#E7F4FA;" readonly value="N/A" class="form-control">
                   <?php } ?>
                   </div>
 					
@@ -387,9 +383,9 @@ input.form-control {
                     </div>
 					
                     <?php if($edit_importer_data->transport_owner_member_no) { ?>
-                    <input type="text" readonly style="background-color:white;" value="<?php echo $edit_importer_data->transport_owner_member_no; ?>" class="form-control">
+                    <input type="text" readonly style="background-color:#FFF9E9;" style="background-color:white;" value="<?php echo $edit_importer_data->transport_owner_member_no; ?>" class="form-control">
                       <?php } else{ ?>
-                        <input type="text" readonly value="N/A" class="form-control">
+                        <input type="text" style="background-color:#FFF9E9;" readonly value="N/A" class="form-control">
                       <?php } ?>
 					
                   </div>
@@ -403,9 +399,9 @@ input.form-control {
                     </div>
 					
 					      <?php if($edit_importer_data->transport_owner_card_no) {?>
-                    <input type="text" readonly value="<?php echo $edit_importer_data->transport_owner_card_no; ?>" class="form-control">
+                    <input type="text" style="background-color:#FFF9E9;" readonly value="<?php echo $edit_importer_data->transport_owner_card_no; ?>" class="form-control">
                     <?php }else{ ?>
-                      <input type="text" readonly value="N/A" class="form-control">
+                      <input type="text" style="background-color:#FFF9E9;" readonly value="N/A" class="form-control">
                       <?php } ?>
                   </div>
                 </div>
