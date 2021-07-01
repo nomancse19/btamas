@@ -679,8 +679,14 @@ class ImporterController extends CI_Controller {
             }
            $selected_number= '['.$number.']';
           // $selected_number= '["01521451354","01772068908"]';
-          echo  $this->send_bulk_sms($selected_number,$sms);
-         //echo  $this->bulkSms($selected_number,$sms);
+          $sms_send = $this->send_bulk_sms($selected_number,$sms);
+         
+         
+        
+            $fdata['success_message']="SMS SuccessFully Send To Transport Malik User ".$sms_send;
+            $this->session->set_flashdata($fdata);
+            redirect('Cholotransportowner/ManageTransportMalikSms');
+        
                 
         }else{
             
